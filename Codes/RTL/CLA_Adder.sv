@@ -9,7 +9,7 @@
 //  Time-Area trade-off: it offers less time for the evaluation with more hardware complexity.
 `timescale 1ns/1ps
 module CLA_Adder 
-(
+#(
     parameter integer SIZE = 4
 )
 (
@@ -44,8 +44,8 @@ function [SIZE:0] cla;
 
     for ( i=0 ; i<SIZE ; i++ )
     begin
-        and(pnc[i], p_arg[i], cla[i]);
-        xor(cla[i+1], g_arg[i], pnc[i]);
+        pnc[i]   = p_arg[i] & cla[i];
+        cla[i+1] = g_arg[i] ^ pnc[i];
     end
 endfunction
 
