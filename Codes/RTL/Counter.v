@@ -26,9 +26,9 @@ reg [(BITS - 1):0] count_reg;
 localparam GOUP   = 2'b00,
            GODOWN = 2'b01;
 
-always @(negedge ResetN, posedge Clock) 
+always @(negedge reset_n, posedge clock) 
 begin
-  if(~ResetN) begin
+  if(~reset_n) begin
     case({up,down})
       GODOWN: 
       begin
@@ -49,13 +49,13 @@ begin
   else begin
     if (enable) begin
       if(up) begin
-      count_reg  <= count_reg + 1;
+        count_reg  <= count_reg + 1;
       end
-      else if(Down) begin
-          count_reg  <= count_reg - 1;
+      else if(down) begin
+        count_reg  <= count_reg - 1;
       end
       else begin
-          count_reg  <= count_reg;
+        count_reg  <= count_reg;
       end
     end
     else begin
