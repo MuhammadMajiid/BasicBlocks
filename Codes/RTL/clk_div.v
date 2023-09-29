@@ -27,8 +27,8 @@ wire type;
 reg even_clk;
 
 // Intialization
-assign type <= div_ratio[0];
-assign temp <= div_ratio >> 1;
+assign type = div_ratio[0];
+assign temp = div_ratio >> 1;
 
 //  logic for even N/2 with 50% duty cycle
 always @(posedge clock, negedge reset_n) begin

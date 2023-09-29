@@ -8,5 +8,5 @@ module halfAdder (
 
 xor g0 (sum, a, b);
 and g1 (carr, a, b);
-    
+
 endmodule
